@@ -14,7 +14,8 @@ class Program
             bool isInRange = false;
             
             int number = Convert.ToInt32(Console.ReadLine());
-
+            
+            // if user input is out of range
             if (number <= 1 || number >= 100)
             {
                 while (!isInRange)
