@@ -87,6 +87,22 @@ class Program
         // int.Parse(string) will convert a string to an int
         number1 = int.Parse(aLine);
         
+        Console.WriteLine("Please enter a second number below:");
+        
+        aLine = Console.ReadLine(); // reuse aLine define above
+        
+        number2 = int.Parse(aLine); 
+        
+        Console.WriteLine("Please enter a third number below:");
+        
+        aLine = Console.ReadLine(); // reuse aLine define above
+        
+        number3 = int.Parse(aLine);
+        
+        // Add the three numbers together to create a sum/total
+        sum = number1 + number2 + number3;
+        
+        Console.WriteLine($"The sum is: {sum}");
         
         Console.WriteLine("--- Ending Program ---");
     }
