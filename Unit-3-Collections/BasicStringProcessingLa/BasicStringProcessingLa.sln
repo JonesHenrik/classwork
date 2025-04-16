@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStringProcessingLa", "BasicStringProcessingLa\BasicStringProcessingLa.csproj", "{8013C34D-8D42-45F7-85E9-220C8931CB55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8013C34D-8D42-45F7-85E9-220C8931CB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8013C34D-8D42-45F7-85E9-220C8931CB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8013C34D-8D42-45F7-85E9-220C8931CB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8013C34D-8D42-45F7-85E9-220C8931CB55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
