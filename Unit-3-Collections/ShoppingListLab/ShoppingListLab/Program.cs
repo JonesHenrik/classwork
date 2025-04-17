@@ -43,6 +43,7 @@ class Program
             // Must be able to access dictionary and list in scope
             
             // should only check once for an element not everything
+            // Use the .ContainsKey method for Dictionary
             foreach (var item in menuItems)
             {
                 if (userInput.ToLower() == item.Key)
