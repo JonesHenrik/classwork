@@ -41,6 +41,8 @@ class Program
             // if doesn't exist send an error
             // if correct add relevant item to list
             // Must be able to access dictionary and list in scope
+            
+            // should only check once for an element not everything
             foreach (var item in menuItems)
             {
                 if (userInput.ToLower() == item.Key)
