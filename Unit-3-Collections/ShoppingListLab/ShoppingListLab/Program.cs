@@ -17,7 +17,7 @@ class Program
         menuItems["grapefruit"] = (decimal)1.99;
         menuItems["honeydew"] = (decimal)3.49;
         
-        DisplayMenu(menuItems);
+        //DisplayMenu(menuItems);
         AddItems(menuItems);
         // 12 spaces from figs to $
         // nice to have: Accurate spacing based on characters used in
@@ -33,9 +33,10 @@ class Program
     {
         bool isShopping  = true;
         List<String> shoppingCart = new List<string>();
+        bool isCorrect = true;
         do
         {
-            Console.WriteLine("What item would you like to order? ");
+            DisplayMenu(menuItems);
             string userInput = Console.ReadLine();
             
             // if doesn't exist send an error
@@ -44,6 +45,23 @@ class Program
             
             // should only check once for an element not everything
             // Use the .ContainsKey method for Dictionary
+            try
+            {
+                if (menuItems.ContainsKey(userInput))
+                {
+                    shoppingCart.Add(userInput);
+                }
+                Console.WriteLine("Adding " + userInput + " to cart at $" + menuItems[userInput]);
+                isCorrect = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Sorry, we don't have those. Please try again.");
+                // repeat do loop
+                isCorrect = false;
+            }
+            
+            /*
             foreach (var item in menuItems)
             {
                 if (userInput.ToLower() == item.Key)
@@ -56,25 +74,30 @@ class Program
                     Console.WriteLine("Sorry, we don't have those.  Please try again.");
                 }
             }
-            
-            Console.WriteLine("Would you like to order anything else (y/n)?");
-            string continueInput = Console.ReadLine();
-            continueInput.ToLower().Substring(0, 1);
+            */
+            if (isCorrect)
+            {
+                Console.WriteLine("Would you like to order anything else (y/n)?");
+                string continueInput = Console.ReadLine();
+                continueInput.ToLower().Substring(0, 1);
 
-            if (continueInput == "n")
-            {
-                isShopping = false;
-                // Return shopping list and cost?
-                Console.WriteLine("Thanks for your order!");
-                Console.WriteLine("Here's what you got:");
-                foreach (var items in shoppingCart)
+                if (continueInput == "n")
                 {
-                    Console.WriteLine(items + "     " + menuItems[items]);
+                    isShopping = false;
+                    // Return shopping list and cost?
+                    Console.WriteLine("Thanks for your order!");
+                    Console.WriteLine("Here's what you got:");
+                    foreach (var items in shoppingCart)
+                    {
+                        Console.WriteLine(items + "     " + menuItems[items]);
+                    }
+                    //decimal average = menuItems.Values.Average();
+                    Console.WriteLine("Average price per item in order was $" + returnAverage(menuItems));
                 }
-            }
-            else
-            {
-                DisplayMenu(menuItems);
+                else
+                {
+                    DisplayMenu(menuItems);
+                }
             }
             // after input 
         } while (isShopping);
@@ -89,5 +112,19 @@ class Program
         {
             Console.WriteLine($"{item.Key}:     ${item.Value}");
         }
+        
+        Console.WriteLine("What item would you like to order? ");
+    }
+
+    static decimal returnAverage(Dictionary<string, decimal> menuItems)
+    {
+        decimal average = 0;
+        foreach (var item in menuItems)
+        {
+            average += item.Value;
+            average /= menuItems.Count;
+        }
+        // not getting correct math for average back
+        return average;
     }
 }
