@@ -61,20 +61,6 @@ class Program
                 isCorrect = false;
             }
             
-            /*
-            foreach (var item in menuItems)
-            {
-                if (userInput.ToLower() == item.Key)
-                {
-                    shoppingCart.Add(item.Key);
-                    Console.WriteLine($"adding {item.Key} to cart at ${item.Value}");
-                }
-                else
-                {
-                    Console.WriteLine("Sorry, we don't have those.  Please try again.");
-                }
-            }
-            */
             if (isCorrect)
             {
                 Console.WriteLine("Would you like to order anything else (y/n)?");
@@ -84,19 +70,25 @@ class Program
                 if (continueInput == "n")
                 {
                     isShopping = false;
-                    // Return shopping list and cost?
                     Console.WriteLine("Thanks for your order!");
                     Console.WriteLine("Here's what you got:");
                     foreach (var items in shoppingCart)
                     {
                         Console.WriteLine(items + "     " + menuItems[items]);
                     }
-                    //decimal average = menuItems.Values.Average();
-                    Console.WriteLine("Average price per item in order was $" + returnAverage(menuItems));
+                    
+                    decimal average = 0;
+                    
+                    foreach (var item in shoppingCart)
+                    {
+                        average += menuItems[item];
+                    }
+                    decimal shoppingCartAverage = average / shoppingCart.Count;
+                    Console.WriteLine("Average price per item in order was $" + shoppingCartAverage);
                 }
                 else
                 {
-                    DisplayMenu(menuItems);
+                    //DisplayMenu(menuItems);
                 }
             }
             // after input 
@@ -125,6 +117,10 @@ class Program
             average /= menuItems.Count;
         }
         // not getting correct math for average back
-        return average;
+        //return average;
+        // getting wrong average may need to use the list and reference each item
+        // returns 1.84 each time?
+        decimal differentAverage = menuItems.Values.Average();
+        return differentAverage;
     }
 }
