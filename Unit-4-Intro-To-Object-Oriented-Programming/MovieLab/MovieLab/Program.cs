@@ -8,9 +8,7 @@ class Program
         Console.WriteLine("Welcome to the Movie List Application!\n");
     
         // Create list of Movies class
-        //private List<Movie> listOfMovies = [Movie("John Wick", "Action")];
         // Add at least ten Movies to the list
-        // Print amount of movies in the list to the Console
         List<Movie> movies = new List<Movie>
         {
             new Movie("John Wick", "Action"),
@@ -24,5 +22,11 @@ class Program
             new Movie("Inception", "Science Fiction"),
             new Movie("Intersteller", "Science Fiction"),
         };
+        // Print amount of movies in the list to the Console
+        Console.WriteLine($"There are {movies.Count} movies in the list.");
+        /****** Display menu of categories by entering a number ******/
+        Console.WriteLine("What category are you interested in?");
+        string category = Console.ReadLine();
+        
     }
 }
