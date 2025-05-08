@@ -2,23 +2,43 @@ namespace MovieLab;
 
 public class Movie
 {
-    string title;
-    string category;
-
-
-    public string Title
-    {
-        get { return title; }
-    }
-
-    public string Category
-    {
-        get { return category; }
-    }
+    private string title { get; }
+    private string category { get; set; }
+    
     
     public Movie(string title, string category)
     {
-        title = title;
-        category = category;
+        this.title = title;
+        this.category = category;
+    }
+
+    public string GetTitle()
+    {
+        return title;
+    }
+    public string GetCategory()
+    {
+        return category;
+    }
+
+    public override bool Equals(object otherObject)
+    {
+        if (otherObject.GetType() != this.GetType()) // If types differ...
+        {
+            return false; //     they can't be equal
+        }
+
+        if (otherObject == this) // if the same object...
+        {
+            return true; //    they must be equal
+        }
+        
+        Movie otherMovie = (Movie) otherObject;
+        
+        if (otherMovie.category == this.category)
+        {
+            return true;
+        }
+        return false;
     }
 }

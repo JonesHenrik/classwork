@@ -24,9 +24,46 @@ class Program
         };
         // Print amount of movies in the list to the Console
         Console.WriteLine($"There are {movies.Count} movies in the list.");
+        bool isViewing = false;
         /****** Display menu of categories by entering a number ******/
-        Console.WriteLine("What category are you interested in?");
-        string category = Console.ReadLine();
+        Console.WriteLine("What category are you interested in?"); 
+        
+        do
+        {
+            string category = Console.ReadLine();
+            category = category.Replace(" ", "").ToLower();
+            
+            // cant figure out spacing issues
+            if (category == "action" || category == "comedy" || category == "sciencefiction" || category == "horror")
+            {
+                foreach (var movie in movies)
+                {
+                    if (movie.GetCategory().Replace(" ", "").ToLower() == category)
+                    {
+                        Console.WriteLine(movie.GetTitle());
+                    }
+                }
+            }
+            else
+            {
+                isViewing = true;
+                Console.WriteLine("Please enter a valid category.");
+            }
+            
+            Console.WriteLine("Would you like to view more movies? (y/n)");
+            string wantsToContinue = Console.ReadLine();
+            if (wantsToContinue == "y")
+            {
+                isViewing = true;
+                Console.WriteLine("What category are you interested in?"); 
+            }
+            else
+            {
+                isViewing = false;
+                Console.WriteLine("Thank you for using the Movie List!");
+            }
+
+        } while (isViewing);
         
     }
 }
