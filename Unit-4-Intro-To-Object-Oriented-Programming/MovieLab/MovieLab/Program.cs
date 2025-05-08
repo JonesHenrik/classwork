@@ -43,24 +43,23 @@ class Program
                         Console.WriteLine(movie.GetTitle());
                     }
                 }
+                Console.WriteLine("Would you like to view more movies? (y/n)");
+                string wantsToContinue = Console.ReadLine();
+                if (wantsToContinue == "y")
+                {
+                    isViewing = true;
+                
+                }
+                else
+                {
+                    isViewing = false;
+                    Console.WriteLine("Thank you for using the Movie List!");
+                }
             }
             else
             {
                 isViewing = true;
                 Console.WriteLine("Please enter a valid category.");
-            }
-            
-            Console.WriteLine("Would you like to view more movies? (y/n)");
-            string wantsToContinue = Console.ReadLine();
-            if (wantsToContinue == "y")
-            {
-                isViewing = true;
-                Console.WriteLine("What category are you interested in?"); 
-            }
-            else
-            {
-                isViewing = false;
-                Console.WriteLine("Thank you for using the Movie List!");
             }
 
         } while (isViewing);
