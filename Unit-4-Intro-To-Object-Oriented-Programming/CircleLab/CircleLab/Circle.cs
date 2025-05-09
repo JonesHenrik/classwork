@@ -8,7 +8,12 @@ public class Circle
     {
         this.radius = radius;
     }
-    
+
+    public Circle()
+    {
+        throw new NotImplementedException();
+    }
+
     public double CalclateDiameter()
     {
         return radius * 2;
@@ -27,7 +32,7 @@ public class Circle
     public void Grow()
     {
         radius = radius * 2;
-        Console.WriteLine("The circle is magically growing.");
+        Console.WriteLine("The circle is magically growing.\n");
     }
 
     public double GetRadius()
