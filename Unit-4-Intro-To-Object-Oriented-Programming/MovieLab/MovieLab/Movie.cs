@@ -12,9 +12,9 @@ public class Movie
         this.category = category;
     }
 
-    public string GetTitle()
-    {
-        return title;
+    public string GetTitle() 
+    { 
+        return title; 
     }
     public string GetCategory()
     {
