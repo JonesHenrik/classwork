@@ -35,6 +35,7 @@ public class Person
   * 3 ways to define getters and setters shown
   *****************************************************************************/
  
+ // Automatically implemented property technique 
  public string Name { get; set; }   // Use property name to assign values
 
  public int HeightInInches

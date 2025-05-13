@@ -8,7 +8,8 @@ namespace Day_6_Abstract_Classes
     // It's in the same namespace as the application (for now and for simplicity)
     //
 
-    public class PlayingCard
+    // Adding the atribute abstract to a class makes it abstract
+    public abstract class PlayingCard
     {
     /*********************************************************************
      * Data members (attributes, properties, variables)
@@ -154,10 +155,6 @@ namespace Day_6_Abstract_Classes
             return CardValue * 17 + CardColor.GetHashCode() + CardSuit.GetHashCode();
         }
 
-        public virtual void ShowCard()
-        {
-            Console.WriteLine(this);
-        }
-
+        public abstract void ShowCard();
     }  // End of PlayingCard class
 } // End of namespace

@@ -11,6 +11,7 @@ class Program
         {
             commonCode.WriteSeparatorLine("Welcome to the Abstract Class Example!");
 
+            // If playing card is abstract we can not instantiate it
      //     PlayingCard aCard = new PlayingCard(1, "Hearts", "Red");
             
             AmericanPlayingCard usaCard       = new AmericanPlayingCard(1, "Hearts");
