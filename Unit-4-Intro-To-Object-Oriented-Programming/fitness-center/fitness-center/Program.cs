@@ -33,7 +33,36 @@ class Program
         {
             if (UserChoice == "a")
             {
-                // add a user
+                bool InValidOption = false;
+                do
+                {
+                    // Prompt user if they want to be singleClub or MultiClub
+                    if (InValidOption)
+                    {
+                        Console.WriteLine("You must enter either 's' or 'm'");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Glad to hear you want to join the Fitness Center!");
+                        Console.WriteLine("Would you like to be a single club member or multi club member?: (s/m)");
+                    }
+
+                    string userInput = Console.ReadLine();
+                    userInput = userInput.ToLower().Replace(" ", "");
+
+                    if (userInput == "s")
+                    {
+                        // run AddSingleClub Member
+                    }
+                    else if (userInput == "m")
+                    {
+                        // run AddMultiClub Member
+                    }
+                    else
+                    {
+                        InValidOption = true;
+                    }
+                } while (InValidOption);
             } 
             else if (UserChoice == "r")
             {
@@ -42,7 +71,10 @@ class Program
             else if (UserChoice == "d")
             {
                 // display member info
-                // if .Equals or member name == a name in members return desc
+                foreach (var member in members)
+                {
+                    Console.WriteLine(member.ToString());
+                }
             }
         } while (ValidChoice);
 
