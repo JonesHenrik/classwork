@@ -24,9 +24,14 @@ public class Main
             Console.WriteLine("What club do you want to do?");
             string clubName = Console.ReadLine();
             // validate club
+           if (clubs.Contains(clubName))
+            
             foreach (var club in clubs)
             {
-                if (club.)
+                if (club.Name.Contains(clubName))
+                {
+                    
+                }
             }           
         } while (isValidClub);
 
