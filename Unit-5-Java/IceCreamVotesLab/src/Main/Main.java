@@ -50,6 +50,8 @@ public class Main {
             } while (isValid);
         }
 
+        highestVote(voteCount);
+
     }
 
     // Print out the flavor options
@@ -77,5 +79,18 @@ public class Main {
             return flavor.contains(input);
         }
         return false;
+    }
+
+    public static void highestVote(Map<String, Integer> voteCount) {
+        int highestValue = 0;
+        String highestFlavor = "";
+        for (Map.Entry<String, Integer> vote : voteCount.entrySet()) {
+            if (vote.getValue() > highestValue) {
+                highestValue = vote.getValue();
+                highestFlavor = vote.getKey();
+            }
+        }
+
+        System.out.println("The flavor(s) with the most votes are: \n" + highestFlavor);
     }
 }
